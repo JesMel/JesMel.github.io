@@ -1,20 +1,42 @@
-function setup() {
-createCanvas(600,400);
-}
+var xPos = 100;
+var yPos = 100;
+var xSpeed = 2;
+var ySpeed = 2;
 
+var leftPaddle = 100;
+var rightPaddle = 100;
+function setup () {
+  createCanvas(600,400);
+}
 
 function draw() {
-  //red background
-background(255,0,0);
+  background(0);
+ellipse(xPos,yPos,20,20);
+xPos = xPos + xSpeed;
+yPos = yPos + ySpeed;
 
-stroke(0,0,255);
-if(mouseX > 300) {
-  fill(0,255,0);
-}
-else {
-fill(0,0,255);
+if (yPos >= 400) {
+  ySpeed = -1 * ySpeed;
+ }
+
+ if (xPos >= 600) {
+   xSpeed = -1 * xSpeed;
+ }
+
+if (yPos <= 0) {
+  ySpeed = -1 * ySpeed;
 }
 
-strokeWeight(5);
-ellipse(50,50,50,50);
+  if (xPos <= 0 && yPos >= leftPaddle && yPos <= leftPaddle + 40) {
+  xSpeed = -1 * xSpeed;
+ }
+rect(0, leftPaddle, 10, 40);
+rect(590, rightPaddle, 10, 40)
+
+if(keyIsDown(87)) {
+  leftPaddle = leftPaddle -3;
+ }
+ if(keyIsDown(83)) {
+ leftPaddle = leftPaddle + 3;
+ }
 }
