@@ -3,8 +3,8 @@ var yPos = 100;
 var xSpeed = 2;
 var ySpeed = 2;
 
-var leftPaddle = 100;
-var rightPaddle = 100;
+var leftPaddle = 100
+var rightPaddle = 100
 function setup () {
   createCanvas(600,400);
 }
@@ -38,5 +38,11 @@ if(keyIsDown(87)) {
  }
  if(keyIsDown(83)) {
  leftPaddle = leftPaddle + 3;
+ }
+ if(keyIsDown(40)) {
+   rightPaddle = rightPaddle + 3;
+ }
+ if(keyIsDown(38)) {
+   rightPaddle = rightPaddle - 3;
  }
 }
